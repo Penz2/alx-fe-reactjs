@@ -1,6 +1,6 @@
 import WelcomeMessage from './src/components/WelcomeMessage.jsx'
-import Header from './Header'
-import MainContent from './MainContent'
+import Header from './src/components/Header.jsx'
+import MainContent from './src/components/MainContent.jsx'
 import Footer from './src/components/Footer.jsx'
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
