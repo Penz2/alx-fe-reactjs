@@ -14,19 +14,13 @@ function App() {
 
   return (
     <>
-       <div>
       <WelcomeMessage />
-    </div>
-       <div>
       <Header />
       <MainContent />
       <Footer />
-    </div>
-      <div>
       <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
       <UserProfile name="Bob" age="30" bio="Enjoys coding and traveling" />
       <UserProfile name="Charlie" age="28" bio="Passionate about music and art" />
-    </div>
     </>
   )
 }
