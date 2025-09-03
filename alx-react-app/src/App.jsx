@@ -4,11 +4,7 @@ import UserProfile from './components/UserProfile.jsx'
 import MainContent from './components/MainContent.jsx'
 import Footer from './components/Footer.jsx'
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
  
-
 function App() {
   const [count, setCount] = useState(0)
 
