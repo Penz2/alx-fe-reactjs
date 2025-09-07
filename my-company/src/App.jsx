@@ -1,12 +1,14 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./components/Home";
-import About from "./components/About";
-import Services from "./components/Services";
-import Contact from "./components/Contact";
+import Navbar from "./components/navbar.jsx";
+import Home from "./components/Home.jsx";
+import About from "./components/About.jsx";
+import Services from "./components/Services.jsx";
+import Contact from "./components/Contact.jsx";
 
 function App() {
   return (
     <Router>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -17,3 +19,4 @@ function App() {
   );
 }
 export default App;
+
