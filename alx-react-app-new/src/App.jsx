@@ -1,3 +1,4 @@
+import Counter        from './components/Counter.jsx';
 import WelcomeMessage from './components/WelcomeMessage.jsx';
 import UserProfile    from './components/UserProfile.jsx';
 import Header         from './components/Header.jsx';
