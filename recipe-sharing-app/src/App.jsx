@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import AddRecipeForm from './components/AddRecipeForm'
-import RecipeList from './components/Recipelist'
-import { useRecipeStore } from './components/recipeStore'
+import RecipeList from './components/Recipelist''
 import Store from './components/Store'
 import './App.css'
 
