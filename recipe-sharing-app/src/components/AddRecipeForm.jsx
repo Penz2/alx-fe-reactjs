@@ -15,6 +15,7 @@
     };
 
     return (
+        <>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -29,6 +30,7 @@
         />
         <button type="submit">Add Recipe</button>
       </form>
+    </>
     );
   };
 
