@@ -12,7 +12,9 @@ export default function RecipeList() {
       {recipes.map((r) => (
         <div key={r.id} style={{ borderBottom: "1px solid #ddd", padding: "8px 0" }}>
           <h3 style={{ margin: 0 }}>
-            <Link to={`/recipes/${r.id}`}>{r.title}</Link>
+           <Link to={`/recipe/${recipe.id}`}>
+             <h3>{recipe.title}</h3>
+           </Link>
           </h3>
           <p style={{ margin: "6px 0" }}>{r.description}</p>
         </div>
