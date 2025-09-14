@@ -1,5 +1,5 @@
 // src/components/DeleteRecipeButton.jsx
-import { useRecipeStore } from "./Store/recipeStore";
+import { useRecipeStore } from "./store/recipeStore";
 
 export default function DeleteRecipeButton({ id, afterDelete }) {
   const deleteRecipe = useRecipeStore((s) => s.deleteRecipe);
