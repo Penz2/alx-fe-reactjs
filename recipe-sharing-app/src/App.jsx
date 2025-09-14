@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import AddRecipeForm from './components/AddRecipeForm'
-import Store from './components/recipeStore'
-import RecipeList from './components/Recipelist'
+import RecipeList from './components/RecipeList'
 import './App.css'
 
 function App() {
@@ -9,12 +8,11 @@ function App() {
 
   return (
     <>
-     <RecipeList/>
-     <AddRecipeForm /> 
-      <Store />
-       
+      <RecipeList />
+      <AddRecipeForm />
     </>
   )
 }
 
 export default App
+

@@ -1,19 +1,18 @@
- // RecipeList component
-  import { useRecipeStore } from "./recipeStore";
+import { useRecipeStore } from "../recipeStore"; // fixed path
 
-  const RecipeList = () => {
-    const recipes = useRecipeStore(state => state.recipes);
+const RecipeList = () => {
+  const recipes = useRecipeStore(state => state.recipes);
 
-    return (
-      <>
-        {recipes.map(recipe => (
-          <div key={recipe.id}>
-            <h3>{recipe.title}</h3>
-            <p>{recipe.description}</p>
-          </div>
-        ))}
-      </>
-    );
-  };
+  return (
+    <>
+      {recipes.map(recipe => (
+        <div key={recipe.id}>
+          <h3>{recipe.title}</h3>
+          <p>{recipe.description}</p>
+        </div>
+      ))}
+    </>
+  );
+};
 
-    export default RecipeList;
+export default RecipeList;
