@@ -1,7 +1,7 @@
 // src/components/RecipeList.jsx
 import React from "react";
 import { Link } from "react-router-dom";
-import { useRecipeStore } from "../store/recipeStore";
+import { useRecipeStore } from "./recipeStore";
 
 export default function RecipeList() {
   const recipes = useRecipeStore((s) =>

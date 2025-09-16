@@ -1,6 +1,6 @@
 // src/components/EditRecipeForm.jsx
 import { useState, useEffect } from "react";
-import { useRecipeStore } from "../recipeStore";
+import { useRecipeStore } from "./recipeStore";
 
 export default function EditRecipeForm({ recipeId, onSaved }) {
   const recipe = useRecipeStore((s) =>
