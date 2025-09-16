@@ -4,6 +4,7 @@ import RecipeList from "./components/RecipeList";
 import AddRecipeForm from "./components/AddRecipeForm";
 import RecipeDetails from "./components/RecipeDetails";
 import EditRecipeForm from "./components/EditRecipeForm";
+import SearchBar from "./components/SearchBarr";
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
       <header style={{ padding: "12px", borderBottom: "1px solid #ccc" }}>
         <Link to="/">Home</Link>
       </header>
+      <SearchBar />
       <main style={{ padding: "12px" }}>
         <Routes>
           <Route

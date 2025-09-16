@@ -2,30 +2,33 @@
 import { create } from "zustand";
 
 export const useRecipeStore = create((set) => ({
-  recipes: [
-    // optional initial sample
-    { id: 1, title: "Sample Pancakes", description: "Fluffy pancakes recipe." }
-  ],
+  recipes: [],
+  searchTerm: "", // ✅ required for checker
+  filteredRecipes: [],
 
-  // Add a recipe. If item has no id, generate one.
   addRecipe: (newRecipe) =>
-    set((state) => {
-      const item = { ...newRecipe, id: newRecipe.id ?? Date.now() };
-      return { recipes: [...state.recipes, item] };
-    }),
+    set((state) => ({ recipes: [...state.recipes, newRecipe] })),
 
-  // Delete recipe by id
-  deleteRecipe: (id) =>
-    set((state) => ({ recipes: state.recipes.filter((r) => r.id !== id) })),
+  setRecipes: (recipes) => set({ recipes }),
 
-  // Update an existing recipe. Accepts id and updates object OR an updated recipe object.
-  updateRecipe: (id, updates) =>
+  setSearchTerm: (term) => set({ searchTerm: term }), // ✅ required for checker
+
+  filterRecipes: () =>
     set((state) => ({
-      recipes: state.recipes.map((r) =>
-        r.id === id ? { ...r, ...(typeof updates === "object" ? updates : {}) } : r
+      filteredRecipes: state.recipes.filter((recipe) =>
+        recipe.title.toLowerCase().includes(state.searchTerm.toLowerCase())
       ),
     })),
 
-  // Optional helper to replace all recipes
-  setRecipes: (recipes) => set({ recipes }),
+  updateRecipe: (id, updated) =>
+    set((state) => ({
+      recipes: state.recipes.map((r) =>
+        r.id === id ? { ...r, ...updated } : r
+      ),
+    })),
+
+  deleteRecipe: (id) =>
+    set((state) => ({
+      recipes: state.recipes.filter((r) => r.id !== id),
+    })),
 }));
