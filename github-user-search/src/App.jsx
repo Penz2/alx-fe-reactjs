@@ -1,6 +1,6 @@
 // src/App.jsx
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import SearchBar from "./components/SearchBar";
+import Search from "./components/Search";
 import UserCard from "./components/UserCard";
 
 export default function App() {
@@ -8,10 +8,7 @@ export default function App() {
     <Router>
       <div>
         <h1>GitHub User Search</h1>
-        <Routes>
-          <Route path="/" element={<SearchBar />} />
-          <Route path="/user/:username" element={<UserCard />} />
-        </Routes>
+          <Search />
       </div>
     </Router>
   );
