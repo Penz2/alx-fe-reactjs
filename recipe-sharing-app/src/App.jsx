@@ -5,6 +5,8 @@ import AddRecipeForm from "./components/AddRecipeForm";
 import RecipeDetails from "./components/RecipeDetails";
 import EditRecipeForm from "./components/EditRecipeForm";
 import SearchBar from "./components/SearchBar";
+import FavoritesList from "./components/FavoritesList";
+import RecommendationsList from "./components/RecommendationsList";
 
 export default function App() {
   return (
@@ -13,6 +15,8 @@ export default function App() {
         <Link to="/">Home</Link>
       </header>
       <SearchBar />
+      <FavoritesList />
+      <RecommendationsList />
       <main style={{ padding: "12px" }}>
         <Routes>
           <Route
