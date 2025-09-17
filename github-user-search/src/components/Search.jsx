@@ -1,26 +1,54 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { fetchUserData } from "../services/githubService";
 
-export default function SearchBar() {
+export default function Search() {
   const [username, setUsername] = useState("");
-  const navigate = useNavigate();
+  const [userData, setUserData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (username.trim()) {
-      navigate(`/user/${username}`);
+    setLoading(true);
+    setError("");
+    setUserData(null);
+
+    try {
+      const data = await fetchUserData(username);
+      setUserData(data);
+    } catch (err) {
+      setError("Looks like we cant find the user");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Search GitHub user..."
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <button type="submit">Search</button>
-    </form>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Enter GitHub username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <button type="submit">Search</button>
+      </form>
+
+      {/* Conditional Rendering */}
+      {loading && <p>Loading...</p>}
+      {error && <p>{error}</p>}
+      {userData && (
+        <div>
+          {/* Explicitly include avatar_url, login, img */}
+          <img src={userData.avatar_url} alt={userData.login} width={100} />
+          <h2>{userData.name || userData.login}</h2>
+          <p>Login: {userData.login}</p>
+          <a href={userData.html_url} target="_blank" rel="noreferrer">
+            View Profile
+          </a>
+        </div>
+      )}
+    </div>
   );
 }
