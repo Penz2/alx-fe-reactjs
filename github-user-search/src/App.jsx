@@ -10,6 +10,12 @@ export default function App() {
         <h1>GitHub User Search</h1>
           <Search />
       </div>
+      <h1 className="text-4xl font-bold text-green-600">
+           Tailwind is working!
+      </h1>
+      <Routes>
+        <Route path="/user/:username" element={<UserCard />} />
+      </Routes>
     </Router>
   );
 }
