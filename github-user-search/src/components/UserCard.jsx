@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { fetchUser } from "./services/githubService";
+import { fetchUserData } from "./services/githubService";
 
 export default function UserCard() {
   const { username } = useParams();
@@ -8,7 +8,7 @@ export default function UserCard() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetchUser(username)
+    fetchUserData(username)
       .then((data) => setUser(data))
       .catch((err) => setError(err.message));
   }, [username]);
