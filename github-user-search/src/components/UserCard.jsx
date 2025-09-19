@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { fetchUserData } from "./services/githubService";
+import { fetchUserData } from "../services/githubService";
 
 export default function UserCard() {
   const { username } = useParams();
