@@ -3,12 +3,40 @@
     "id": 1,
     "title": "Spaghetti Carbonara",
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-    "image": "https://www.recipetineats.com/tachyon/2023/01/Carbonara_6a.jpg?resize=900%2C1125&zoom=0.72"
+    "image": "https://www.recipetineats.com/tachyon/2023/01/Carbonara_6a.jpg?resize=900%2C1125&zoom=0.72",
+       "ingredients": [
+      "200g spaghetti",
+      "100g pancetta",
+      "2 eggs",
+      "50g parmesan cheese",
+      "Black pepper"
+    ],
+    "instructions": [
+      "Cook spaghetti in salted water until al dente.",
+      "Fry pancetta until crisp.",
+      "Whisk eggs with grated cheese.",
+      "Combine pasta, pancetta, and egg mixture off heat.",
+      "Serve with extra cheese and pepper."
+    ]
   },
   {
     "id": 2,
     "title": "Chicken Tikka Masala",
     "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-    "image": "https://www.recipetineats.com/tachyon/2018/04/Chicken-Tikka-Masala_0.jpg?resize=964%2C1350&zoom=0.67"
+    "image": "https://www.recipetineats.com/tachyon/2018/04/Chicken-Tikka-Masala_0.jpg?resize=964%2C1350&zoom=0.67",
+     "ingredients": [
+      "500g chicken breast",
+      "200ml yogurt",
+      "1 onion",
+      "3 tomatoes",
+      "Spices: cumin, garam masala, turmeric, chili powder"
+    ],
+    "instructions": [
+      "Marinate chicken in yogurt and spices.",
+      "Grill or pan-fry chicken until golden.",
+      "Cook onions and tomatoes into a sauce.",
+      "Add spices and simmer.",
+      "Stir in cream and chicken, cook until thickened."
+    ]
   }
 ]
