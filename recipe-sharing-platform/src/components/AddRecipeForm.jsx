@@ -1,31 +1,36 @@
 import React, { useState } from "react";
-import data from "../data.json";
 
-const RecipeForm = () => {
+const AddRecipeForm = () => {
   const [title, setTitle] = useState("");
   const [ingredients, setIngredients] = useState("");
   const [steps, setSteps] = useState("");
   const [errors, setErrors] = useState({});
 
-  // ✅ Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
+  // ✅ New validate function
+  const validate = () => {
     let validationErrors = {};
 
-    // Simple validation checks
     if (!title.trim()) validationErrors.title = "Title is required";
+
     if (!ingredients.trim()) {
       validationErrors.ingredients = "Ingredients are required";
     } else if (ingredients.split("\n").length < 2) {
       validationErrors.ingredients = "Include at least 2 ingredients";
     }
+
     if (!steps.trim()) validationErrors.steps = "Steps are required";
 
+    return validationErrors;
+  };
+
+  // ✅ Handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const validationErrors = validate(); // use validate()
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length === 0) {
-      // ✅ If no errors, handle form submission
       const newRecipe = { title, ingredients, steps };
       console.log("Recipe submitted:", newRecipe);
 
@@ -42,7 +47,7 @@ const RecipeForm = () => {
       <h1 className="text-2xl font-bold mb-4 text-center">Add a New Recipe</h1>
 
       <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Title Input */}
+        {/* Title */}
         <div>
           <label className="block text-gray-700 font-medium mb-1">
             Recipe Title
@@ -57,7 +62,7 @@ const RecipeForm = () => {
           {errors.title && <p className="text-red-500 text-sm">{errors.title}</p>}
         </div>
 
-        {/* Ingredients Textarea */}
+        {/* Ingredients */}
         <div>
           <label className="block text-gray-700 font-medium mb-1">
             Ingredients
@@ -74,7 +79,7 @@ const RecipeForm = () => {
           )}
         </div>
 
-        {/* Steps Textarea */}
+        {/* Steps */}
         <div>
           <label className="block text-gray-700 font-medium mb-1">
             Preparation Steps
@@ -89,7 +94,7 @@ const RecipeForm = () => {
           {errors.steps && <p className="text-red-500 text-sm">{errors.steps}</p>}
         </div>
 
-        {/* Submit Button */}
+        {/* Submit */}
         <button
           type="submit"
           className="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition duration-200"
@@ -101,4 +106,5 @@ const RecipeForm = () => {
   );
 };
 
-export default RecipeForm;
+export default AddRecipeForm;
+
