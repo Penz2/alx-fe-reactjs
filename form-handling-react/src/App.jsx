@@ -2,8 +2,12 @@ import RegistrationForm from "./components/RegistrationForm";
 import FormikForm from "./components/formikForm";
 
 function App() {
-  return <RegistrationForm />;
-  return <FormikForm />;
+  return (
+    <div className="App">
+      <FormikForm />
+      <RegistrationForm />
+    </div>
+  );
 }
 
 export default App;
