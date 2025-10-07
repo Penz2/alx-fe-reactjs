@@ -53,3 +53,9 @@ function PostsComponent() {
             <p className="text-gray-700">{post.body}</p>
           </li>
         ))}
+      </ul>
+    </div>
+  );
+}
+
+export default PostsComponent;
