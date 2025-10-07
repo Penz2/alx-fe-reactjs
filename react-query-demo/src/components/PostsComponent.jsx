@@ -2,31 +2,34 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 
+const fetchPosts = async () => {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  if (!res.ok) throw new Error("Network error while fetching posts");
+  return res.json();
+};
+
 function PostsComponent() {
-  // 🔹 React Query hook for fetching posts
+  // React Query hook with required states and caching logic
   const {
     data: posts,
-    error,
     isLoading,
+    isError,
+    error,
     isFetching,
     refetch,
   } = useQuery({
     queryKey: ["posts"],
-    queryFn: async () => {
-      const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-      if (!res.ok) throw new Error("Network error while fetching posts");
-      return res.json();
-    },
+    queryFn: fetchPosts,
 
-    // 🔹 React Query caching & refetch settings
-    cacheTime: 1000 * 60 * 5, // keep data cached for 5 minutes
-    refetchOnWindowFocus: false, // prevent refetch when switching tabs
-    keepPreviousData: true, // keep old data visible while refetching
+    // React Query caching and refetch behavior
+    cacheTime: 1000 * 60 * 5, // 5 minutes cache
+    refetchOnWindowFocus: false,
+    keepPreviousData: true,
   });
 
-  // 🔹 Loading and error states
+  // Loading and error states
   if (isLoading) return <p className="text-gray-500">Loading posts...</p>;
-  if (error) return <p className="text-red-500">Error: {error.message}</p>;
+  if (isError) return <p className="text-red-500">Error: {error.message}</p>;
 
   return (
     <div className="w-full max-w-3xl">
@@ -50,10 +53,3 @@ function PostsComponent() {
             <p className="text-gray-700">{post.body}</p>
           </li>
         ))}
-      </ul>
-    </div>
-  );
-}
-
-export default PostsComponent;
-
