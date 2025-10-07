@@ -1,25 +1,22 @@
 import React, { useState } from "react";
 
 function RegistrationForm() {
-  // Step 1: Create state for each field
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  // Step 2: Handle form submission
   const handleSubmit = (e) => {
-    e.preventDefault(); // prevent page reload
+    e.preventDefault(); 
     if (!username || !email || !password) {
       setError("All fields are required!");
       return;
     }
 
-    // If everything is filled, clear error and log data
+    
     setError("");
-    console.log("✅ Registration Data:", { username, email, password });
+    console.log("Registration Data:", { username, email, password });
 
-    // Optionally clear fields
     setUsername("");
     setEmail("");
     setPassword("");
@@ -41,7 +38,7 @@ function RegistrationForm() {
           <input
             type="text"
             value={username}
-            onChange={(e) => setUsername(e.target.value)} // controlled input
+            onChange={(e) => setUsername(e.target.value)} 
             placeholder="Enter your username"
             className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-400"
           />
@@ -53,7 +50,7 @@ function RegistrationForm() {
           <input
             type="email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)} // controlled input
+            onChange={(e) => setEmail(e.target.value)} 
             placeholder="Enter your email"
             className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-400"
           />
@@ -65,7 +62,7 @@ function RegistrationForm() {
           <input
             type="password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)} // controlled input
+            onChange={(e) => setPassword(e.target.value)} 
             placeholder="Enter your password"
             className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-400"
           />
