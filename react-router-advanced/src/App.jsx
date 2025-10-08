@@ -6,14 +6,13 @@ import PostDetail from "./components/PostDetail";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
-  const isAuthenticated = true; // simulate login
+  const isAuthenticated = true; // Simulate a logged-in user
 
   return (
     <Router>
       <Routes>
         <Route path="/" element={<h1 className="text-center mt-10">🏠 Home Page</h1>} />
 
-        {/* Protected route for profile */}
         <Route
           path="/profile/*"
           element={
@@ -23,11 +22,9 @@ function App() {
           }
         />
 
-        {/* Dynamic routes for posts */}
         <Route path="/posts" element={<Posts />} />
         <Route path="/posts/:id" element={<PostDetail />} />
 
-        {/* Redirect for 404s */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
@@ -35,3 +32,4 @@ function App() {
 }
 
 export default App;
+
