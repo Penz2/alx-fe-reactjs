@@ -9,7 +9,6 @@ const fetchPosts = async () => {
 };
 
 function PostsComponent() {
-  // React Query hook with required states and caching logic
   const {
     data: posts,
     isLoading,
@@ -21,13 +20,13 @@ function PostsComponent() {
     queryKey: ["posts"],
     queryFn: fetchPosts,
 
-    // React Query caching and refetch behavior
-    cacheTime: 1000 * 60 * 5, // 5 minutes cache
-    refetchOnWindowFocus: false,
-    keepPreviousData: true,
+    // 🔹 React Query caching and refetch settings
+    cacheTime: 1000 * 60 * 5,        // cache lasts 5 minutes
+    staleTime: 1000 * 30,            // data stays fresh for 30 seconds
+    refetchOnWindowFocus: false,     // no auto-refetch when switching tabs
+    keepPreviousData: true,          // keep old data visible while fetching new
   });
 
-  // Loading and error states
   if (isLoading) return <p className="text-gray-500">Loading posts...</p>;
   if (isError) return <p className="text-red-500">Error: {error.message}</p>;
 
