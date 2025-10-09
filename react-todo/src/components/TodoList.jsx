@@ -48,7 +48,14 @@ function TodoList() {
             }}
           >
             {todo.text}
-            <button onClick={() => deleteTodo(todo.id)}>❌</button>
+            <button
+              onClick={(e) => {
+                e.stopPropagation(); 
+                deleteTodo(todo.id); 
+              }}
+            >
+                ❌
+            </button>
           </li>
         ))}
       </ul>
@@ -57,3 +64,4 @@ function TodoList() {
 }
 
 export default TodoList;
+
